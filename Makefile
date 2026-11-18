@@ -11,3 +11,5 @@ build:
 deploy: build
 	arduino-cli upload -p $(TARGET) --fqbn arduino:$(DEVICE) $(FILE)
 
+deploy-serial: deploy
+	arduino-cli monitor -p /dev/ttyACM0 --config baudrate=1200
